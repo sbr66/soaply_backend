@@ -86,7 +86,8 @@ function signin($conn){
         }else{
             
             $_SESSION['userid'] = $userid;
-            echo json_encode(array("userid" => $_SESSION['userid']));
+            $_SESSION['useridx']= $login_data['user_idx'];
+            echo json_encode(array("userid" => $_SESSION['userid'], "useridx" => $_SESSION['useridx']));
         }
 
         //echo json_encode(array("userid" => $pwd_valid));
