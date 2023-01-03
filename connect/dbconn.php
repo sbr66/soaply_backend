@@ -6,7 +6,7 @@
     $pass= '';
 
     session_start();
-    $conn = new mysqli($host, $user, $pass, $db);
+    $conn = new mysqli($host, $user, $pass, $db); // 마지막에는 $db
 
     if($conn->connect_errno){
         http_response_code(400);
