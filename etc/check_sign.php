@@ -3,6 +3,7 @@
     if(isset($_SESSION['userid'])){
         $userid = $_SESSION['userid'];
         $useridx = $_SESSION['useridx'];
+        $userlvl = $_SESSION['userlvl'];
         // echo json_encode(array("userid" => $_SESSION['userid'], "user_idx" => $_SESSION['useridx']));
     }else{
         $userid = "guest";
@@ -16,5 +17,5 @@
         $cart_count = 0;
     }
 
-    echo json_encode(array("userid" => $userid, "user_idx" => $useridx, "cart_count" => $cart_count));
+    echo json_encode(array("userid" => $userid, "user_idx" => $useridx, "cart_count" => $cart_count, "user_lvl" => $userlvl));
 ?>

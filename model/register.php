@@ -22,13 +22,14 @@ function signup($conn){ // 회원가입 처리 함수
     $id = $_POST['id'];
     $email = $_POST['email'];
     $pwd = $_POST['pwd'];
+    $lvl = 9;
 
     $pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
     // echo json_encode(array("name" => var_dump($conn)));
 
     // sql 입력 명령어 작성
-    $sql = "INSERT INTO spl_user (user_name, user_id, user_email, user_pass) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO spl_user (user_name, user_id, user_email, user_pass, user_lvl) VALUES (?,?,?,?,?)";
 
     //stmt init 참조 :https://www.w3schools.com/Php/func_mysqli_stmt_init.asp
     $stmt = $conn->stmt_init();
@@ -38,7 +39,7 @@ function signup($conn){ // 회원가입 처리 함수
         echo json_encode(array("err message" => "Database insert fail."));
     }
 
-    $stmt -> bind_param("ssss", $name, $id, $email, $pwd);
+    $stmt -> bind_param("sssss", $name, $id, $email, $pwd, $lvl);
     $stmt -> execute();
     
     if($stmt->affected_rows > 0){
@@ -87,7 +88,8 @@ function signin($conn){
             
             $_SESSION['userid'] = $userid;
             $_SESSION['useridx']= $login_data['user_idx'];
-            echo json_encode(array("userid" => $_SESSION['userid'], "useridx" => $_SESSION['useridx']));
+            $_SESSION['userlvl']= $login_data['user_lvl'];
+            echo json_encode(array("userid" => $_SESSION['userid'], "useridx" => $_SESSION['useridx'], "userlvl" => $_SESSION['user_lvl']));
         }
 
         //echo json_encode(array("userid" => $pwd_valid));
