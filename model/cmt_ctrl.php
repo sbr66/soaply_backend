@@ -37,7 +37,7 @@
             }
             $a_data[$matches[1]] = $matches[2];
         }        
-        }
+    }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['req_sign']) && $_GET['req_sign'] == 'post_cmt'){
         post_cmt($conn);
