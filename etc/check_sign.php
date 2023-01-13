@@ -8,6 +8,7 @@
     }else{
         $userid = "guest";
         $useridx = -1;
+        $userlvl = null;
         // echo json_encode(array("userid" => "guest"));
     }
 
