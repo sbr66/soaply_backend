@@ -81,7 +81,4 @@
         echo json_encode(array("msg"=>"입력에 실패하셨습니다"));
     }
 
-
-    // echo json_encode(array("name" => "$pro_name", "price" => $pro_price, "desc" => $pro_desc, "reg" => $pro_reg, "img_name" => $image_name, "tmp_name" => $image_tmp_name, "type" => $image_type, "size" => $image_size, "img_error" => $image_error, "exp" =>$exp));
-
 ?>

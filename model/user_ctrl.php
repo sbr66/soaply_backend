@@ -69,7 +69,6 @@
         }
 
         echo json_encode($json_result);
-        // echo json_encode(array("msg" => "사용자 데이터 요청")); 
     } 
 
     function patch_user($conn){
@@ -81,17 +80,6 @@
         // $user_id=$_SESSION['userid'];
         $user_idx=$_GET['user_idx'];
         $user_lvl=$_PATCH['lvl'];
-
-        // if($user_id || $user_lvl !=1){
-        //     echo "
-        //     <script>
-        //         alert('잘못된 접근입니다.');
-        //         location.href='/main_project/index.html';
-        //      </script>
-        //     ";
-        //     exit();
-        // }
-
 
         // 업데이트 구문 : UPDATE [tablename] SET [update column] = [update value] WHERE [condition]
         $sql = "UPDATE spl_user SET user_lvl = ? WHERE user_idx = ?";
@@ -114,8 +102,6 @@
             echo json_encode(array("msg" => "레벨이 변경되지 않았습니다."));
         }
 
-        // echo json_encode(array("user_idx" => $user_idx, "user_lvl" => $user_lvl)); 
-
     } 
     function del_user($conn){
 
@@ -136,8 +122,6 @@
         // 삭제 구문 : DELETE FROM [table name] WHERE [condition]
         $sql = "DELETE FROM spl_user WHERE user_idx=$user_idx";
         mysqli_query($conn, $sql);
-
-        // echo $user_idx;
 
         echo json_encode(array("msg" => "삭제가 완료되었습니다.")); 
 

@@ -63,15 +63,12 @@
         $pro_idx = $_GET['p_idx'];
         $content = $_POST['cmt_cont']; // details.html > comment-form > form > textarea 의 name값
         $cmt_reg=date("Y-m-d H:i:s");
-        // $cmt_star=$_POST['cmt_star'];
 
         if(!isset($_POST['cmt_star'])){
             $cmt_star = 1;
         } else {
             $cmt_star = $_POST['cmt_star'];
         }
-
-        // echo json_encode(array("u_idx" => $u_idx, "pro_idx" =>$pro_idx, "content" => $content, "cmt_reg"=> $cmt_reg, "cmt_star" => $cmt_star));
 
         if(!isset($_SESSION['useridx'])){
             echo json_encode(array("msg" => "상품평을 작성하려면 로그인이 필요합니다."));
@@ -157,7 +154,6 @@
             echo json_encode(array("msg" => "작성한 본인이 아니면 수정할 수 없습니다."));
             exit();
         }
-        // echo json_encode(array("cmt_idx" => $cmt_idx, "cmt_cont" => $cmt_cont, "cmt_star" => $cmt_star));
 
         $sql = "UPDATE spl_cmt SET cmt_cont = ?, cmt_star = ? WHERE cmt_idx = ?";
         $stmt = $conn->stmt_init(); // php 7.4 버전 이상에서만 가능
@@ -170,14 +166,8 @@
         $stmt -> bind_param("sss", $cmt_cont, $cmt_star, $cmt_idx); // 순서 맞춰주기
         $stmt -> execute();
         
-        // if($stmt->affected_rows > 0){
-        //     http_response_code(200);
-            echo json_encode(array("msg" => "상품평이 수정되었습니다."));
-        // }else{
-        //     http_response_code(400);
-        //     echo json_encode(array("msg" => "글 수정에 실패했습니다.2"));
-        // }
 
-        // echo json_encode(array("cmt_idx" => $cmt_idx, "cmt_cont" => $cmt_cont));
+            echo json_encode(array("msg" => "상품평이 수정되었습니다."));
+
     }
 ?>

@@ -92,15 +92,10 @@ function signin($conn){
             echo json_encode(array("userid" => $_SESSION['userid'], "useridx" => $_SESSION['useridx'], "userlvl" => $_SESSION['user_lvl']));
         }
 
-        //echo json_encode(array("userid" => $pwd_valid));
-        //echo json_encode(array("userid" => $login_data));
     }
 
-    //echo $userid, $pwd;
-    //echo json_encode(array("userid" => mysqli_num_rows($result)));
 } // 로그인 처리 함수
 function signout(){
-    //echo json_encode(array("userid" => "Sign out"));
     if(isset($_SESSION['userid'])){
         session_unset();
         session_destroy();
