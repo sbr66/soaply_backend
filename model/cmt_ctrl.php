@@ -1,7 +1,7 @@
 <?php
     
-    include $_SERVER['DOCUMENT_ROOT'].'/main_backend/etc/error.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/main_backend/connect/dbconn.php'; // 연결한 dbconn.php에 session start가 있음 => 현재 페이지에 session start 할 필요 X
+    include $_SERVER['DOCUMENT_ROOT'].'/soaply_backend/etc/error.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/soaply_backend/connect/dbconn.php'; // 연결한 dbconn.php에 session start가 있음 => 현재 페이지에 session start 할 필요 X
 
     function parse_raw_http_request(array &$a_data){
         // read incoming data

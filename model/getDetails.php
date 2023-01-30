@@ -2,7 +2,7 @@
 
 $get_idx=$_GET['idx'];
 // 접속 정보 로드
-include_once $_SERVER['DOCUMENT_ROOT'].'/main_backend/connect/dbconn.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/soaply_backend/connect/dbconn.php';
 
 $sql = "SELECT * FROM spl_products WHERE pro_idx = $get_idx"; 
 $result = mysqli_query($conn, $sql); //  첫번째 파라미터 : 접속정보, 두번째 파라미터 ; 쿼리문
